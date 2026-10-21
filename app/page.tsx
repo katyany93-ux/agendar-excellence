@@ -12,10 +12,13 @@ export default function ExcellenceCliente() {
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#1A1A1A] p-6 font-sans flex flex-col items-center">
       <header className="py-12 text-center w-full max-w-md flex flex-col items-center">
-        {/* Espaço para o seu Logo BK / Excellence */}
         <div className="w-24 h-24 bg-white rounded-full shadow-sm border border-gray-50 flex items-center justify-center mb-6 overflow-hidden">
-          <img src="/logo.png" alt="Excellence Logo" className="w-full h-full object-contain p-2" 
-               onError={(e) => e.currentTarget.src = "https://api.dicebear.com/7.x/initials/svg?seed=EK&backgroundColor=b8860b"} />
+          <img 
+            src="/logo.png" 
+            alt="Excellence Logo" 
+            className="w-full h-full object-contain p-2" 
+            onError={(e) => e.currentTarget.src = "https://api.dicebear.com/7.x/initials/svg?seed=EK&backgroundColor=b8860b"} 
+          />
         </div>
         
         <h1 className="text-3xl font-light tracking-[0.3em] text-[#B8860B] uppercase mb-1">Excellence</h1>
@@ -62,7 +65,7 @@ export default function ExcellenceCliente() {
         </div>
 
         <div className="pt-8">
-          <p className="text-[10px] font-bold text-gray-300 uppercase tracking-[0.2em] ml-1 mb-4">Acompanhe no Instagram</p>
+          <p className="text-[10px] font-bold text-gray-300 uppercase tracking-[0.2em] ml-1 mb-4 text-center">Acompanhe no Instagram</p>
           <div className="grid grid-cols-3 gap-3">
             <a href={instaSalao} target="_blank" className="bg-white py-5 rounded-xl border border-gray-50 flex flex-col items-center gap-2 hover:bg-gray-50 transition-colors shadow-sm">
               <span className="text-xl">✨</span>
