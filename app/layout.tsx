@@ -15,7 +15,7 @@ export default function RootLayout({
       <head>
         <script src="https://cdn.tailwindcss.com"></script>
       </head>
-      <body className="bg-white m-0 p-0">{children}</body>
+      <body style={{ margin: 0, padding: 0, backgroundColor: '#FFFFFF' }}>{children}</body>
     </html>
   );
 }
