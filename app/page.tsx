@@ -10,84 +10,83 @@ export default function ExcellenceCliente() {
   const instaLoja = "https://www.instagram.com/store.excellence.online";
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF] text-[#1A1A1A] p-6 font-sans flex flex-col items-center">
-      <header className="py-12 text-center w-full max-w-md flex flex-col items-center">
-        <div className="w-24 h-24 bg-white rounded-full shadow-sm border border-gray-50 flex items-center justify-center mb-6 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#D4A373] via-[#B8860B] to-[#AA8439] p-6 font-sans flex flex-col items-center">
+      
+      {/* Header com Logo em Destaque */}
+      <header className="py-10 text-center w-full max-w-md flex flex-col items-center">
+        <div className="w-28 h-28 bg-black rounded-full shadow-2xl border-4 border-[#D4A373] flex items-center justify-center mb-6 overflow-hidden">
           <img 
             src="/logo.png" 
             alt="Excellence Logo" 
-            className="w-full h-full object-contain p-2" 
-            onError={(e) => e.currentTarget.src = "https://api.dicebear.com/7.x/initials/svg?seed=EK&backgroundColor=b8860b"} 
+            className="w-full h-full object-contain p-3" 
+            onError={(e) => e.currentTarget.src = "https://api.dicebear.com/7.x/initials/svg?seed=EK&backgroundColor=000000&textColor=D4A373"} 
           />
         </div>
         
-        <h1 className="text-3xl font-light tracking-[0.3em] text-[#B8860B] uppercase mb-1">Excellence</h1>
-        <p className="text-[9px] text-gray-400 uppercase tracking-[0.4em] font-medium text-center">Estética Avançada & Studio de Beleza</p>
-        <div className="h-[1px] w-16 bg-[#B8860B] opacity-20 mt-4"></div>
+        <h1 className="text-4xl font-black tracking-tighter text-black uppercase mb-1 drop-shadow-sm">Excellence</h1>
+        <p className="text-[10px] text-black font-bold uppercase tracking-[0.3em] opacity-80">Estética Avançada & Studio</p>
       </header>
 
-      <div className="w-full max-w-md space-y-5">
+      <div className="w-full max-w-md space-y-4">
+        
+        {/* Botões de Agendamento - Preto com Dourado */}
         <div className="space-y-3">
-          <p className="text-[10px] font-bold text-gray-300 uppercase tracking-[0.2em] ml-1">Agendamentos</p>
-          
           <a href={linkCabelo} target="_blank" rel="noopener noreferrer" 
-             className="group bg-white p-5 rounded-xl shadow-sm border border-gray-50 flex items-center justify-between hover:border-[#B8860B]/30 transition-all active:scale-[0.98]">
+             className="flex items-center justify-between bg-black p-5 rounded-2xl shadow-xl border border-[#D4A373]/30 hover:scale-[1.02] transition-all active:scale-95">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100">
-                <span className="text-lg">💇‍♀️</span>
-              </div>
-              <span className="text-sm font-medium tracking-wide">Design & Cabelo</span>
+              <span className="text-2xl">💇‍♀️</span>
+              <span className="text-sm font-bold text-[#D4A373] uppercase tracking-wider">Agendar Cabelo</span>
             </div>
-            <span className="text-xs text-gray-300">📅</span>
+            <span className="text-[#D4A373] opacity-50">➜</span>
           </a>
 
           <a href={linkManicure} target="_blank" rel="noopener noreferrer" 
-             className="group bg-white p-5 rounded-xl shadow-sm border border-gray-50 flex items-center justify-between hover:border-[#B8860B]/30 transition-all active:scale-[0.98]">
+             className="flex items-center justify-between bg-black p-5 rounded-2xl shadow-xl border border-[#D4A373]/30 hover:scale-[1.02] transition-all active:scale-95">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100">
-                <span className="text-lg">💅</span>
-              </div>
-              <span className="text-sm font-medium tracking-wide">Manicure & Pedicure</span>
+              <span className="text-2xl">💅</span>
+              <span className="text-sm font-bold text-[#D4A373] uppercase tracking-wider">Agendar Manicure</span>
             </div>
-            <span className="text-xs text-gray-300">📅</span>
+            <span className="text-[#D4A373] opacity-50">➜</span>
           </a>
 
           <a href={linkWhatsEstetica} target="_blank" rel="noopener noreferrer" 
-             className="group bg-[#1A1A1A] p-5 rounded-xl shadow-lg flex items-center justify-between hover:bg-black transition-all active:scale-[0.98]">
+             className="flex items-center justify-between bg-[#F5F5F5] p-5 rounded-2xl shadow-xl border-2 border-black hover:scale-[1.02] transition-all active:scale-95">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-[#B8860B]/20 rounded-full flex items-center justify-center">
-                <span className="text-lg">💉</span>
-              </div>
-              <span className="text-sm font-bold tracking-wide text-white">Procedimentos Estéticos</span>
+              <span className="text-2xl">💉</span>
+              <span className="text-sm font-black text-black uppercase tracking-wider">Procedimentos Estéticos</span>
             </div>
-            <span className="text-xs text-[#B8860B]">💬</span>
+            <span className="text-black">💬</span>
           </a>
         </div>
 
+        {/* Redes Sociais - Estilo Dark Gold */}
         <div className="pt-8">
-          <p className="text-[10px] font-bold text-gray-300 uppercase tracking-[0.2em] ml-1 mb-4 text-center">Acompanhe no Instagram</p>
+          <p className="text-[10px] font-black text-black uppercase tracking-[0.2em] text-center mb-4">Nossas Redes Oficiais</p>
           <div className="grid grid-cols-3 gap-3">
-            <a href={instaSalao} target="_blank" className="bg-white py-5 rounded-xl border border-gray-50 flex flex-col items-center gap-2 hover:bg-gray-50 transition-colors shadow-sm">
+            <a href={instaSalao} target="_blank" className="bg-black/10 backdrop-blur-sm py-4 rounded-xl border border-black/20 flex flex-col items-center gap-1 hover:bg-black hover:text-[#D4A373] transition-all">
               <span className="text-xl">✨</span>
-              <span className="text-[8px] font-bold uppercase tracking-widest text-gray-400">Studio</span>
+              <span className="text-[8px] font-bold uppercase text-black hover:text-[#D4A373]">Studio</span>
             </a>
-            <a href={instaBiomedica} target="_blank" className="bg-white py-5 rounded-xl border border-gray-50 flex flex-col items-center gap-2 hover:bg-gray-50 transition-colors shadow-sm">
+            <a href={instaBiomedica} target="_blank" className="bg-black/10 backdrop-blur-sm py-4 rounded-xl border border-black/20 flex flex-col items-center gap-1 hover:bg-black hover:text-[#D4A373] transition-all">
               <span className="text-xl">👩‍⚕️</span>
-              <span className="text-[8px] font-bold uppercase tracking-widest text-gray-400">Dra. Katiane</span>
+              <span className="text-[8px] font-bold uppercase text-black hover:text-[#D4A373]">Dra. Katiane</span>
             </a>
-            <a href={instaLoja} target="_blank" className="bg-white py-5 rounded-xl border border-gray-50 flex flex-col items-center gap-2 hover:bg-gray-50 transition-colors shadow-sm">
+            <a href={instaLoja} target="_blank" className="bg-black/10 backdrop-blur-sm py-4 rounded-xl border border-black/20 flex flex-col items-center gap-1 hover:bg-black hover:text-[#D4A373] transition-all">
               <span className="text-xl">🛍️</span>
-              <span className="text-[8px] font-bold uppercase tracking-widest text-gray-400">Store</span>
+              <span className="text-[8px] font-bold uppercase text-black hover:text-[#D4A373]">Store</span>
             </a>
           </div>
         </div>
 
-        <button className="w-full py-4 mt-12 text-[9px] font-bold uppercase tracking-[0.3em] text-gray-300 border border-gray-100 rounded-full hover:bg-black hover:text-white hover:border-black transition-all">
-          Avalie sua experiência Excellence
+        {/* Botão de Avaliação Chamativo */}
+        <button className="w-full py-5 mt-10 text-[10px] font-black uppercase tracking-[0.3em] bg-white text-black rounded-full shadow-2xl hover:bg-black hover:text-white transition-all border-2 border-black">
+          ⭐ Avalie sua Experiência Excellence
         </button>
       </div>
 
-      <footer className="mt-20 opacity-10 text-[8px] uppercase tracking-[0.6em]">Excellence • Estética Avançada</footer>
+      <footer className="mt-16 text-black/40 text-[8px] font-bold uppercase tracking-[0.5em]">
+        Excellence • Luxury Beauty
+      </footer>
     </div>
   );
 }
