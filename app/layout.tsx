@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Excellence Agendamentos",
-  description: "Agende seu horário na Excellence Estética & Beleza",
+  title: "Excellence | Agendamentos",
+  description: "Portal de agendamentos Excellence Estética & Beleza",
 };
 
 export default function RootLayout({
@@ -13,7 +12,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <head>
+        <script src="https://cdn.tailwindcss.com"></script>
+      </head>
+      <body className="bg-white m-0 p-0">{children}</body>
     </html>
   );
 }
