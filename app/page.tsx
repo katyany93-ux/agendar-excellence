@@ -1,18 +1,26 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-
-// Tentativa de importar o supabase de forma segura
-let supabase: any = null;
-try {
-  const { supabase: sbClient } = require('@/lib/supabase');
-  supabase = sbClient;
-} catch (e) {
-  console.log("Supabase não configurado ainda");
-}
+import { supabase } from '../lib/supabase'; // Caminho relativo corrigido para a Vercel
 
 export default function ExcellenceCliente() {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => { 
+    setMounted(true);
+    // Log de acesso opcional ao Supabase
+    const registrarAcesso = async () => {
+      try {
+        await supabase.from('acessos').insert([{ pagina: 'home', data: new Date().toISOString() }]);
+      } catch (e) {
+        console.log("Erro ao conectar com Supabase, mas o site continua rodando!");
+      }
+    };
+    registrarAcesso();
+  }, []);
+
+  const linkCabelo = "https://calendar.app.google/pkfHoDHpikok799W9";
+  const linkManicure = "https://calendar.app.google/Vf6JCDdZHQWCrRABA";
+  const linkWhatsEstetica = "https://wa.me/message/A6OJKD6MBH2FJ1";
+  const linkAvaliacao = "https://docs.google.com/forms/d/e/1FAIpQLSdtpqE-3s28JbtBovFGTw6DGUZpOP12nKpafP7XBlQk2MuLRg/viewform";
 
   if (!mounted) return null;
 
@@ -34,22 +42,40 @@ export default function ExcellenceCliente() {
         </div>
         <h1 className="text-3xl font-light tracking-[0.3em] text-[#B8860B] uppercase mb-1">Excellence</h1>
         <p className="text-[9px] text-[#D8A7B1] uppercase tracking-[0.4em] font-bold">Estética Avançada & Studio</p>
+        <div className="h-[1px] w-12 bg-[#B8860B] opacity-20 mt-4"></div>
       </header>
 
       <div className="w-full max-w-md space-y-5">
-        <a href="https://calendar.app.google/pkfHoDHpikok799W9" target="_blank" className="flex items-center justify-between bg-white p-5 rounded-2xl shadow-md border border-[#B8860B]/30">
-          <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-gray-600">Agendar com Cabeleireiro</span>
-          <span className="text-xl">💇‍♀️</span>
-        </a>
+        <div className="space-y-4">
+          <p className="text-[10px] font-bold text-[#D8A7B1] uppercase tracking-[0.2em] ml-1">Nossas Agendas</p>
+          
+          <a href={linkCabelo} target="_blank" rel="noopener noreferrer" 
+             className="flex items-center justify-between bg-white p-5 rounded-2xl shadow-md border border-[#B8860B]/30 hover:border-[#B8860B] transition-all active:scale-95">
+            <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-gray-600">Agendar com Cabeleireiro</span>
+            <span className="text-xl">💇‍♀️</span>
+          </a>
 
-        <a href="https://wa.me/message/A6OJKD6MBH2FJ1" target="_blank" className="flex items-center justify-center bg-[#FFFCF5] p-5 rounded-2xl shadow-md border border-[#B8860B]/40">
-          <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#B8860B]">Agendar Procedimentos Estéticos</span>
-        </a>
+          <a href={linkManicure} target="_blank" rel="noopener noreferrer" 
+             className="flex items-center justify-between bg-white p-5 rounded-2xl shadow-md border border-[#B8860B]/30 hover:border-[#B8860B] transition-all active:scale-95">
+            <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-gray-600">Agendar com Manicure</span>
+            <span className="text-xl">💅</span>
+          </a>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtpqE-3s28JbtBovFGTw6DGUZpOP12nKpafP7XBlQk2MuLRg/viewform" target="_blank" className="w-full block text-center py-5 mt-10 bg-[#D8A7B1] text-white text-[10px] font-bold uppercase tracking-[0.3em] rounded-2xl shadow-lg">
+          <a href={linkWhatsEstetica} target="_blank" rel="noopener noreferrer" 
+             className="flex items-center justify-center bg-[#FFFCF5] p-5 rounded-2xl shadow-md border border-[#B8860B]/40 hover:bg-white transition-all active:scale-95">
+            <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#B8860B]">Agendar Procedimentos Estéticos</span>
+          </a>
+        </div>
+
+        <a href={linkAvaliacao} target="_blank" rel="noopener noreferrer"
+           className="w-full block text-center py-5 mt-10 bg-[#D8A7B1] text-white text-[10px] font-bold uppercase tracking-[0.3em] rounded-2xl shadow-lg hover:bg-[#C696A0] transition-all active:scale-95">
           ⭐ Avalie sua experiência Excellence
         </a>
       </div>
+
+      <footer className="mt-20 opacity-20 text-[8px] uppercase tracking-[0.8em] text-[#D8A7B1]">
+        Excellence • Luxury Experience
+      </footer>
     </div>
   );
 }
