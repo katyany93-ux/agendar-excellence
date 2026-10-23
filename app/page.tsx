@@ -4,7 +4,6 @@ import { useEffect } from "react";
 
 export default function ExcellenceCliente() {
   useEffect(() => {
-    // Uma falha no registro de acesso não impede a página de abrir.
     async function registrarAcesso() {
       try {
         const { supabase } = await import("../lib/supabase");
@@ -33,7 +32,7 @@ export default function ExcellenceCliente() {
   const linkManicure =
     "https://calendar.app.google/Vf6JCDdZHQWCrRABA";
 
-  // Coloque o link de agendamento de cílios entre as aspas.
+  // Cole o link da agenda de cílios entre as aspas abaixo.
   const linkCilios = "";
 
   const linkWhatsEstetica =
@@ -71,14 +70,26 @@ export default function ExcellenceCliente() {
 
   return (
     <div className="min-h-screen bg-[#FFF5F6] text-[#4A4A4A] p-6 font-sans flex flex-col items-center">
-      <header className="py-10 text-center w-full max-w-md flex flex-col items-center">
-        <div className="w-24 h-24 bg-white rounded-full shadow-lg border-2 border-[#D8A7B1]/20 flex items-center justify-center mb-6 overflow-hidden">
+      <header className="py-8 text-center w-full max-w-md flex flex-col items-center">
+        <div
+          className="mb-6 flex items-center justify-center"
+          style={{
+            width: 160,
+            height: 160,
+            background: "transparent",
+          }}
+        >
           <img
             src="/logo.png"
-            alt="Excellence"
-            width={96}
-            height={96}
-            className="w-full h-full object-contain p-2"
+            alt="Excellence Studio de Beleza"
+            width={160}
+            height={160}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+              background: "transparent",
+            }}
           />
         </div>
 
@@ -94,7 +105,10 @@ export default function ExcellenceCliente() {
       </header>
 
       <main className="w-full max-w-md space-y-8">
-        <section aria-labelledby="titulo-agendas" className="space-y-4">
+        <section
+          aria-labelledby="titulo-agendas"
+          className="space-y-4"
+        >
           <h2
             id="titulo-agendas"
             className="text-[10px] font-bold text-[#D8A7B1] uppercase tracking-[0.2em] ml-1"
@@ -111,6 +125,7 @@ export default function ExcellenceCliente() {
             <span className={estiloTextoAgenda}>
               Agendar com Cabeleireiro
             </span>
+
             <span aria-hidden="true" className="text-xl">
               💇‍♀️
             </span>
@@ -125,6 +140,7 @@ export default function ExcellenceCliente() {
             <span className={estiloTextoAgenda}>
               Agendar com Manicure
             </span>
+
             <span aria-hidden="true" className="text-xl">
               💅
             </span>
@@ -140,6 +156,7 @@ export default function ExcellenceCliente() {
               <span className={estiloTextoAgenda}>
                 Agendar Cílios
               </span>
+
               <span aria-hidden="true" className="text-xl">
                 👁️
               </span>
@@ -154,10 +171,12 @@ export default function ExcellenceCliente() {
                 <span className={`block ${estiloTextoAgenda}`}>
                   Agendar Cílios
                 </span>
+
                 <span className="block text-xs text-gray-500 mt-1">
                   Agenda em breve
                 </span>
               </span>
+
               <span aria-hidden="true" className="text-xl">
                 👁️
               </span>
@@ -185,11 +204,10 @@ export default function ExcellenceCliente() {
           </h2>
 
           <div
-            className="grid grid-cols-3 gap-2"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-              gap: "8px",
+              gap: 8,
             }}
           >
             {redesSociais.map((rede) => (
@@ -204,6 +222,7 @@ export default function ExcellenceCliente() {
                 <span aria-hidden="true" className="text-xl">
                   {rede.icone}
                 </span>
+
                 <span className="text-[11px] font-bold text-gray-600">
                   {rede.nome}
                 </span>
