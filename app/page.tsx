@@ -9,7 +9,7 @@ type Servico = {
   nome: string;
   preco: number | string | null;
   duracao_minutos: number | null;
-  categoria: Categoria;
+  categoria: string | null;
 };
 
 const categorias: { id: Categoria; nome: string }[] = [
@@ -115,7 +115,6 @@ export default function ExcellenceCliente() {
         const { data, error } = await supabase
           .from("servicos")
           .select("id, nome, preco, duracao_minutos, categoria")
-          .in("categoria", ["cabeleireira", "manicure", "cilios"])
           .order("nome", { ascending: true });
 
         if (error) throw error;
@@ -123,10 +122,11 @@ export default function ExcellenceCliente() {
         if (!cancelado) {
           setServicos((data ?? []) as Servico[]);
         }
-      } catch {
+      } catch (falha) {
+        console.error("Falha ao buscar serviços no Supabase:", falha);
         if (!cancelado) {
           setErro(
-            "Não foi possível carregar os serviços. Tente novamente."
+            "Não foi possível carregar os serviços. Confira as permissões de leitura (RLS) no Supabase."
           );
         }
       } finally {
@@ -142,7 +142,8 @@ export default function ExcellenceCliente() {
   }, [tentativa]);
 
   const servicosDaCategoria = servicos.filter(
-    (servico) => servico.categoria === categoria
+    (servico) => (servico.categoria ?? "").trim().toLowerCase() === categoria ||
+    (categoria === "cabeleireira" && (servico.categoria ?? "").trim().toLowerCase() === "cabeleleira")
   );
 
   const selecionado = servicosDaCategoria.find(
@@ -291,17 +292,19 @@ export default function ExcellenceCliente() {
           {agendas[categoria] ? (
             <div className="mt-4">
               <a
-                href={agendas[categoria]}
+                href={selecionado ? agendas[categoria] : undefined}
+                aria-disabled={!selecionado}
+                onClick={(evento) => { if (!selecionado) evento.preventDefault(); }}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center bg-[#D8A7B1] text-white p-4 rounded-2xl font-bold text-sm shadow-sm"
+                className={`block text-center bg-[#D8A7B1] text-white p-4 rounded-2xl font-bold text-sm shadow-sm ${!selecionado ? "opacity-50 cursor-not-allowed" : ""}`}
               >
                 Abrir agenda de{" "}
-                {categoria === "cabeleireira" ? "cabeleireira" : "manicure"}
+                {categoria === "cabeleireira" ? "cabeleireira" : categoria === "manicure" ? "manicure" : "cílios"}
               </a>
 
               <p className="mt-3 text-xs leading-relaxed text-gray-600">
-                A agenda abre em outra página. O serviço escolhido aqui
+                Selecione um serviço para abrir a agenda. A agenda abre em outra página. O serviço escolhido aqui
                 e sua duração não são enviados automaticamente.
                 Confira se o horário reservado comporta o procedimento
                 e, em caso de dúvida, confirme com a profissional.
