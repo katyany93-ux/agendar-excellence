@@ -66,7 +66,38 @@ export default function ExcellenceCliente() {
             <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#B8860B]">Agendar Procedimentos Estéticos</span>
           </a>
         </div>
+        <div className="pt-8 space-y-4">
+          <p className="text-center text-sm font-bold text-[#B8860B]">
+            Acompanhe no Instagram
+          </p>
 
+          <a
+            href="https://www.instagram.com/excellence.studiodebeleza"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white p-5 rounded-2xl shadow-md text-center"
+          >
+            ✨ Instagram do Salão Excellence
+          </a>
+
+          <a
+            href="https://www.instagram.com/dra.katiane.barbosa.bizol"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white p-5 rounded-2xl shadow-md text-center"
+          >
+            👩‍⚕️ Instagram da Dra. Katiane
+          </a>
+
+          <a
+            href="https://www.instagram.com/store.excellence.online"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white p-5 rounded-2xl shadow-md text-center"
+          >
+            🛍️ Instagram da Store Excellence
+          </a>
+        </div>
         <a href={linkAvaliacao} target="_blank" rel="noopener noreferrer"
            className="w-full block text-center py-5 mt-10 bg-[#D8A7B1] text-white text-[10px] font-bold uppercase tracking-[0.3em] rounded-2xl shadow-lg hover:bg-[#C696A0] transition-all active:scale-95">
           ⭐ Avalie sua experiência Excellence
